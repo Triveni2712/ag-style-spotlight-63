@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AG Fashions - Unique Style Redefined</title>
+    <meta name="description" content="Discover premium fashion collections at AG Fashions. Unique, sustainable, and timeless designs." />
+    <meta name="author" content="AG Fashions" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Meta tags -->
+    <meta property="og:title" content="AG Fashions - Unique Style Redefined" />
+    <meta property="og:description" content="Discover premium fashion collections at AG Fashions. Unique, sustainable, and timeless designs." />
+    <meta property="og:type" content="website" />
+    
+    <style>
+        /* AG Fashions Design System */
+        :root {
+            /* AG Fashions Brand Colors */
+            --background: 0 0% 98%;
+            --foreground: 0 0% 5%;
+            --card: 0 0% 100%;
+            --card-foreground: 0 0% 5%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 0 0% 5%;
+            
+            /* Premium Black & Gold Palette */
+            --primary: 0 0% 8%;
+            --primary-foreground: 0 0% 98%;
+            --secondary: 45 100% 50%;
+            --secondary-foreground: 0 0% 8%;
+            --muted: 0 0% 96%;
+            --muted-foreground: 0 0% 45%;
+            --accent: 30 5% 25%;
+            --accent-foreground: 0 0% 98%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 0 0% 98%;
+            --border: 0 0% 90%;
+            --input: 0 0% 95%;
+            --ring: 0 0% 8%;
+            
+            /* Fashion-focused Design Tokens */
+            --gradient-hero: linear-gradient(135deg, hsl(0 0% 8%), hsl(30 5% 15%));
+            --gradient-accent: linear-gradient(90deg, hsl(45 100% 50%), hsl(35 90% 55%));
+            --shadow-luxury: 0 20px 40px -10px hsl(0 0% 0% / 0.3);
+            --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.1);
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --radius: 0.25rem;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+
+        .font-heading {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: hsla(var(--background), 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid hsl(var(--border));
+            z-index: 50;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
+
+        .logo .primary { color: hsl(var(--primary)); }
+        .logo .secondary { color: hsl(var(--secondary)); margin-left: 0.25rem; }
+
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+        }
+
+        .nav-link {
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: hsl(var(--secondary));
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: hsl(var(--foreground));
+            padding: 0.5rem;
+        }
+
+        .btn-ghost:hover {
+            background-color: hsl(var(--muted));
+        }
+
+        .btn-hero {
+            background: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+            padding: 1.5rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        .btn-hero:hover {
+            background: hsl(45 100% 45%);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-luxury);
+        }
+
+        .btn-elegant {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1.5rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        .btn-elegant:hover {
+            background: white;
+            color: hsl(var(--primary));
+        }
+
+        .btn-premium {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            padding: 0.5rem 1rem;
+        }
+
+        .btn-premium:hover {
+            background: hsl(var(--accent));
+        }
+
+        .btn-lg {
+            padding: 1rem 3rem;
+            font-size: 1.125rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('./src/assets/hero-fashion.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title .italic {
+            display: block;
+            color: hsl(var(--secondary));
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title { font-size: 4.5rem; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .hero-subtitle { font-size: 1.5rem; }
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .floating-element {
+            position: absolute;
+            background-color: hsla(var(--secondary), 0.2);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-1 {
+            top: 5rem;
+            left: 2.5rem;
+            width: 5rem;
+            height: 5rem;
+        }
+
+        .floating-2 {
+            bottom: 5rem;
+            right: 2.5rem;
+            width: 4rem;
+            height: 4rem;
+            animation-delay: 2s;
+            background-color: hsla(var(--secondary), 0.1);
+        }
+
+        /* Collections Section */
+        .collections {
+            padding: 5rem 0;
+            background-color: hsla(var(--muted), 0.3);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @media (min-width: 768px) {
+            .section-title { font-size: 3rem; }
+        }
+
+        .section-subtitle {
+            color: hsl(var(--muted-foreground));
+            font-size: 1.125rem;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .collections-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .collections-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .collection-card {
+            background: hsl(var(--card));
+            border-radius: calc(var(--radius) + 4px);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .collection-card:hover {
+            box-shadow: var(--shadow-luxury);
+            transform: translateY(-4px);
+        }
+
+        .collection-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 24rem;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .collection-card:hover .collection-image {
+            transform: scale(1.1);
+        }
+
+        .collection-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+        }
+
+        .collection-card:hover .collection-overlay {
+            opacity: 1;
+        }
+
+        .collection-content {
+            padding: 1.5rem;
+        }
+
+        .collection-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .collection-description {
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 1rem;
+        }
+
+        .collection-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .collection-price {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: hsl(var(--secondary));
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: hsl(var(--background));
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .about-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .about-content {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @media (min-width: 768px) {
+            .about-title { font-size: 3rem; }
+        }
+
+        .about-text {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .values-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-radius: calc(var(--radius) + 2px);
+            background-color: hsla(var(--muted), 0.5);
+            transition: background-color 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .value-item:hover {
+            background-color: hsl(var(--muted));
+        }
+
+        .value-icon {
+            color: hsl(var(--secondary));
+            margin-top: 0.25rem;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-description {
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            padding: 4rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .footer-brand {
+            grid-column: span 1;
+        }
+
+        @media (min-width: 768px) {
+            .footer-brand { grid-column: span 2; }
+        }
+
+        .footer-logo {
+            font-size: 1.875rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo .secondary {
+            color: hsl(var(--secondary));
+            margin-left: 0.25rem;
+        }
+
+        .footer-description {
+            color: hsla(var(--primary-foreground), 0.8);
+            margin-bottom: 1.5rem;
+            max-width: 28rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: transparent;
+            color: hsl(var(--primary-foreground));
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: hsl(var(--secondary));
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: hsla(var(--primary-foreground), 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: hsl(var(--secondary));
+        }
+
+        .footer-bottom {
+            border-top: 1px solid hsla(var(--primary-foreground), 0.2);
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-copyright {
+            color: hsla(var(--primary-foreground), 0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a {
+            color: hsla(var(--primary-foreground), 0.6);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: hsl(var(--secondary));
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .hidden { display: none; }
+        
+        @media (min-width: 768px) {
+            .md\\:hidden { display: none; }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Icon sizing */
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .icon-lg {
+            width: 2rem;
+            height: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <span class="primary">AG</span>
+                    <span class="secondary">FASHIONS</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#collections" class="nav-link">Collections</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Actions -->
+                <div class="nav-actions">
+                    <button class="btn btn-ghost">
+                        <i data-lucide="search" class="icon"></i>
+                    </button>
+                    <button class="btn btn-ghost">
+                        <i data-lucide="user" class="icon"></i>
+                    </button>
+                    <button class="btn btn-ghost">
+                        <i data-lucide="shopping-bag" class="icon"></i>
+                    </button>
+                    <button class="btn btn-ghost md:hidden">
+                        <i data-lucide="menu" class="icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Content -->
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Redefine Your
+                <span class="italic">Style</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Discover our exclusive collection of premium fashion that speaks to your unique personality
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#collections" class="btn btn-hero">
+                    Explore Collection
+                    <i data-lucide="arrow-right" class="icon"></i>
+                </a>
+                <a href="#about" class="btn btn-elegant">
+                    Our Story
+                </a>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="collections">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title font-heading">
+                    Featured Collections
+                </h2>
+                <p class="section-subtitle">
+                    Carefully curated pieces that embody sophistication and style
+                </p>
+            </div>
+
+            <div class="collections-grid">
+                <!-- Collection 1 -->
+                <div class="collection-card">
+                    <div class="collection-image-container">
+                        <img src="./src/assets/casual-wear.jpg" alt="Casual Wear" class="collection-image">
+                        <div class="collection-overlay">
+                            <button class="btn btn-premium">
+                                View Collection
+                            </button>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Casual Wear</h3>
+                        <p class="collection-description">Comfortable everyday essentials for modern living</p>
+                        <div class="collection-footer">
+                            <span class="collection-price">From $45</span>
+                            <button class="btn btn-ghost">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 2 -->
+                <div class="collection-card">
+                    <div class="collection-image-container">
+                        <img src="./src/assets/formal-attire.jpg" alt="Formal Attire" class="collection-image">
+                        <div class="collection-overlay">
+                            <button class="btn btn-premium">
+                                View Collection
+                            </button>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Formal Attire</h3>
+                        <p class="collection-description">Sophisticated pieces for professional occasions</p>
+                        <div class="collection-footer">
+                            <span class="collection-price">From $149</span>
+                            <button class="btn btn-ghost">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 3 -->
+                <div class="collection-card">
+                    <div class="collection-image-container">
+                        <img src="./src/assets/evening-wear.jpg" alt="Evening Wear" class="collection-image">
+                        <div class="collection-overlay">
+                            <button class="btn btn-premium">
+                                View Collection
+                            </button>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Evening Wear</h3>
+                        <p class="collection-description">Elegant designs for special events and parties</p>
+                        <div class="collection-footer">
+                            <span class="collection-price">From $199</span>
+                            <button class="btn btn-ghost">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 4 -->
+                <div class="collection-card">
+                    <div class="collection-image-container">
+                        <img src="./src/assets/sportswear.jpg" alt="Sportswear" class="collection-image">
+                        <div class="collection-overlay">
+                            <button class="btn btn-premium">
+                                View Collection
+                            </button>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Sportswear</h3>
+                        <p class="collection-description">Active wear for fitness and outdoor activities</p>
+                        <div class="collection-footer">
+                            <span class="collection-price">From $39</span>
+                            <button class="btn btn-ghost">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 5 -->
+                <div class="collection-card">
+                    <div class="collection-image-container">
+                        <img src="./src/assets/winter-collection.jpg" alt="Winter Collection" class="collection-image">
+                        <div class="collection-overlay">
+                            <button class="btn btn-premium">
+                                View Collection
+                            </button>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Winter Collection</h3>
+                        <p class="collection-description">Warm and stylish clothing for cold weather</p>
+                        <div class="collection-footer">
+                            <span class="collection-price">From $89</span>
+                            <button class="btn btn-ghost">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 6 -->
+                <div class="collection-card">
+                    <div class="collection-image-container">
+                        <img src="./src/assets/summer-essentials.jpg" alt="Summer Essentials" class="collection-image">
+                        <div class="collection-overlay">
+                            <button class="btn btn-premium">
+                                View Collection
+                            </button>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Summer Essentials</h3>
+                        <p class="collection-description">Light and breezy outfits for warm days</p>
+                        <div class="collection-footer">
+                            <span class="collection-price">From $29</span>
+                            <button class="btn btn-ghost">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#" class="btn btn-lg" style="background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); padding: 1rem 3rem;">
+                    View All Collections
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2 class="about-title font-heading">
+                        Crafting Excellence Since Day One
+                    </h2>
+                    <p class="about-text">
+                        AG Fashions was born from a passion for creating clothing that empowers individuals 
+                        to express their unique style. We believe fashion should be a celebration of 
+                        personality, crafted with care and attention to every detail.
+                    </p>
+                    <p class="about-text">
+                        Our journey began with a simple vision: to make luxury fashion accessible while 
+                        maintaining the highest standards of quality and sustainability.
+                    </p>
+                    <a href="#" class="btn btn-premium btn-lg">
+                        Discover Our Story
+                    </a>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i data-lucide="sparkles" class="icon-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="value-title">Premium Quality</h3>
+                            <p class="value-description">We source only the finest materials and work with skilled artisans to create exceptional pieces.</p>
+                        </div>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i data-lucide="heart" class="icon-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="value-title">Sustainable Fashion</h3>
+                            <p class="value-description">Our commitment to sustainability drives every decision, from sourcing to production.</p>
+                        </div>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i data-lucide="award" class="icon-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="value-title">Timeless Design</h3>
+                            <p class="value-description">We create pieces that transcend trends, offering lasting style and versatility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span>AG</span>
+                        <span class="secondary">FASHIONS</span>
+                    </div>
+                    <p class="footer-description">
+                        Elevating style through premium fashion and sustainable practices. 
+                        Join our community of fashion enthusiasts.
+                    </p>
+                    <div class="social-links">
+                        <button class="social-link">
+                            <i data-lucide="instagram" class="icon"></i>
+                        </button>
+                        <button class="social-link">
+                            <i data-lucide="facebook" class="icon"></i>
+                        </button>
+                        <button class="social-link">
+                            <i data-lucide="twitter" class="icon"></i>
+                        </button>
+                        <button class="social-link">
+                            <i data-lucide="mail" class="icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#collections">Collections</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Care -->
+                <div class="footer-section">
+                    <h3>Customer Care</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:agfashions2001@gmail.com">agfashions2001@gmail.com</a></li>
+                        <li><a href="tel:+917569347822">+91 7569347822</a></li>
+                        <li><a href="tel:+919398170282">+91 9398170282</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 AG Fashions. All rights reserved.
+                </p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.backgroundColor = 'hsla(var(--background), 0.95)';
+            } else {
+                navbar.style.backgroundColor = 'hsla(var(--background), 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
