@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-16">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="text-3xl font-bold tracking-wider mb-4">
@@ -51,6 +51,16 @@ const Footer = () => {
               <li><a href="#" className="text-primary-foreground/80 hover:text-secondary transition-colors">Shipping Info</a></li>
               <li><a href="#" className="text-primary-foreground/80 hover:text-secondary transition-colors">Returns</a></li>
               <li><a href="#" className="text-primary-foreground/80 hover:text-secondary transition-colors">FAQ</a></li>
+            </ul>
+          </div>
+
+          {/* Contact Us */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <ul className="space-y-2">
+              <li><a href="mailto:agfashions2001@gmail.com" className="text-primary-foreground/80 hover:text-secondary transition-colors">agfashions2001@gmail.com</a></li>
+              <li><a href="tel:+917569347822" className="text-primary-foreground/80 hover:text-secondary transition-colors">+91 7569347822</a></li>
+              <li><a href="tel:+919398170282" className="text-primary-foreground/80 hover:text-secondary transition-colors">+91 9398170282</a></li>
             </ul>
           </div>
         </div>
