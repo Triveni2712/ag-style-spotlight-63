@@ -4,7 +4,7 @@ import heroImage from "@/assets/hero-fashion.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -36,7 +36,7 @@ const Hero = () => {
       </div>
       
       {/* Floating Elements */}
-      <div className="absolute top-40 left-10 w-20 h-20 bg-secondary/20 rounded-full animate-float" />
+      <div className="absolute top-20 left-10 w-20 h-20 bg-secondary/20 rounded-full animate-float" />
       <div className="absolute bottom-20 right-10 w-16 h-16 bg-secondary/10 rounded-full animate-float" style={{ animationDelay: '2s' }} />
     </section>
   );
